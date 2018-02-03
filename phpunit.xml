@@ -11,7 +11,7 @@
          testdox="true">
     <testsuites>
         <testsuite name="PHP Micro-Framework Test Suite">
-            <directory suffix=".php">./tests</directory>
+            <directory suffix=".php">./tests/up</directory>
         </testsuite>
     </testsuites>
 </phpunit>
