@@ -17,6 +17,13 @@ class Router
     private $config;
 
     /**
+     * Keep base namespace to work.
+     *
+     * @var string
+     */
+    private $baseNamespace;
+
+    /**
      * Keep a instance for the router.
      *
      * @var Klein
@@ -175,7 +182,7 @@ class Router
      */
     private function getBaseNamespace()
     {
-        return $this->namespace;
+        return $this->baseNamespace;
     }
 
     /**
@@ -188,7 +195,26 @@ class Router
      */
     private function addRoute($method, $uri, $actions)
     {
-        $this->getLibrary()->respond($method, $uri, $actions);
+        $this->getLibrary()->respond($method, $uri, static::buildCallbackAsArray($actions));
+    }
+
+    /**
+     * It build a callable as array an returned it.
+     *
+     * @param string $class
+     * @return callable
+     */
+    private function buildCallbackAsArray($class)
+    {
+        if (is_string($class)) {
+            $parts = explode('@', trim($class));
+
+            $class = $this->getConfig()->getBaseNamespace() . "\\{$parts[0]}";
+
+            $class = [new $class, $parts[1]];
+        }
+
+        return $class;
     }
 
     /**
