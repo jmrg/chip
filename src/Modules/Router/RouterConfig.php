@@ -19,7 +19,7 @@ class RouterConfig
      *
      * @var string
      */
-    private $namespace;
+    private $baseNamespace;
 
     /**
      * Attach one o more file for register routes.
@@ -59,10 +59,20 @@ class RouterConfig
      * @param string $namespace
      * @return $this
      */
-    public function setNamespace($namespace = '')
+    public function setBaseNamespace($namespace = '')
     {
-        $this->namespace = $namespace;
+        $this->baseNamespace = $namespace;
 
         return $this;
+    }
+
+    /**
+     * Return base namespace to work.
+     *
+     * @return string
+     */
+    public function getBaseNamespace()
+    {
+        return $this->baseNamespace;
     }
 }

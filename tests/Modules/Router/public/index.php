@@ -6,7 +6,7 @@ use Chip\Modules\Router\RouterConfig;
 
 try {
     $config = (new RouterConfig())
-        ->setNamespace("\\Test\\Controller")
+        ->setBaseNamespace("\\Test\\Controller")
         ->attachRouterFiles([
             realpath(__DIR__ . '/../endpoints/api.php'),
             realpath(__DIR__ . '/../endpoints/web.php')
