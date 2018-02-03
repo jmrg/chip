@@ -6,4 +6,4 @@ $router->get('/testActionCallableAsFunction', function () {
 
 $router->get('/testActionCallableAsString', 'TestController@testOne');
 
-$router->get('/testActionCallableAsArray', [new \Test\Controller\TestController, 'testDos']);
+$router->get('/testActionCallableAsArray', [new \Test\Controller\TestController, 'testTwo']);
