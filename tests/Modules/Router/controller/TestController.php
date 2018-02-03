@@ -8,7 +8,7 @@ class TestController
         return 'Text for testing in callable string!!';
     }
 
-    public function testDos()
+    public function testTwo()
     {
         return 'Text for testing in callable array!!';
     }
