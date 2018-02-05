@@ -13,7 +13,7 @@ class Router extends TestCase
 
     public static function setUpBeforeClass()
     {
-        self::$process = new Process("php -S localhost:8000 -t tests/Modules/Router/public");
+        self::$process = new Process("php -S localhost:8081 -t tests/Modules/Router/public");
         self::$process->start();
 
         usleep(100000);
@@ -27,7 +27,7 @@ class Router extends TestCase
     public function testRequestShouldResponse200WithActionCallableAsFunction()
     {
         $client = new Client(['http_errors' => false]);
-        $response = $client->request("GET", "http://localhost:8000/testActionCallableAsFunction");
+        $response = $client->request("GET", "http://localhost:8081/testActionCallableAsFunction");
         $response->getHeader('content-type');
 
         $this->assertEquals(200, $response->getStatusCode());
@@ -37,7 +37,7 @@ class Router extends TestCase
     public function testRequestShouldResponse200WithActionCallableAsString()
     {
         $client = new Client(['http_errors' => false]);
-        $response = $client->request("GET", "http://localhost:8000/testActionCallableAsString");
+        $response = $client->request("GET", "http://localhost:8081/testActionCallableAsString");
         $response->getHeader('content-type');
 
         $this->assertEquals(200, $response->getStatusCode());
@@ -47,7 +47,7 @@ class Router extends TestCase
     public function testRequestShouldResponse200WithActionCallableAsArray()
     {
         $client = new Client(['http_errors' => false]);
-        $response = $client->request("GET", "http://localhost:8000/testActionCallableAsArray");
+        $response = $client->request("GET", "http://localhost:8081/testActionCallableAsArray");
         $response->getHeader('content-type');
 
         $this->assertEquals(200, $response->getStatusCode());
