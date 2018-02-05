@@ -3,3 +3,7 @@
 Homestead.json
 Homestead.yaml
 composer.lock
+
+
+/tests/Modules/View/cache/*
+!/tests/Modules/View/cache/.gitkeep
