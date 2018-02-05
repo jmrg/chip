@@ -1,7 +1,7 @@
 {
-    "name": "jmrg/chip",
-    "description": "PHP Micro-Framework.",
-    "keywords": ["micro-framework", "framework", "chip", "fast", "php"],
+    "name": "jmrg/chip-modules",
+    "description": "Components to build a PHP Micro-Framework.",
+    "keywords": ["micro-framework", "framework", "chip", "fast", "php", "components"],
     "license": "MIT",
     "type": "project",
     "require": {
