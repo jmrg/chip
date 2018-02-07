@@ -15,3 +15,17 @@ databases:
         password: secret
         charset: utf8
         collation: utf8_unicode_ci
+
+mail:
+    # 0 = off | 1 = Client messages | 2 = Client and server messages
+    debug: 2
+
+    # Basics
+    driver: smtp
+    host: smtp.mailtrap.io
+    port: 2525
+    username: null
+    password: null
+
+    # Encryption system: tls, ssl (deprecated)
+    encryption: null
