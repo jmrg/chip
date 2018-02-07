@@ -42,12 +42,25 @@ class Config
     }
 
     /**
-     * Return the configuration done as array.
+     * Return the configuration prepared as array. This can
+     * to receive a string with those keys of the array.
      *
+     * @param string $key <Keys nested separated with points.>
      * @return array
      */
-    public static function get()
+    public static function get($key = null)
     {
+        if (!empty($key)) {
+            $keys = explode(".", trim($key));
+
+            $content = static::$configurations;
+            foreach ($keys as $key) {
+                $content = $content[trim($key)];
+            }
+
+            return $content;
+        }
+
         return static::$configurations;
     }
 }
