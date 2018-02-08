@@ -19,31 +19,63 @@ use PHPMailer\PHPMailer\PHPMailer;
 class Mailer
 {
     /**
+     * This keep an instance for the library mail.
+     *
+     * @var PHPMailer
+     */
+    private $instance;
+
+    /**
      * Mailer constructor.
      */
     private function __construct()
     {
-        // ...
+        $this->instance = new PHPMailer();
     }
 
     /**
      * This create a new instance of PHPMailer and set it.
+     *
+     * @return PHPMailer
      */
     public static function create()
     {
-        $mail = new PHPMailer();
+        return (new static())
+            ->config()
+            ->getInstance();
+    }
 
-        $mail->SMTPDebug = config()['mail']['debug'];
-        $mail->isSMTP();
-        $mail->SMTPAuth = true;
-        $mail->SMTPSecure = config()['mail']['encryption'];
+    /**
+     * This configure the instance when that was created.
+     * 
+     * @return static
+     */
+    private function config()
+    {
+        # Driver parameters...
+        $this->getInstance()->SMTPDebug = config('mail.debug');
+        $this->getInstance()->isSMTP();
+        $this->getInstance()->SMTPAuth = true;
+        $this->getInstance()->SMTPSecure = config('mail.encryption');
 
-        $mail->Host = config()['mail']['host'];
-        $mail->Port = config()['mail']['port'];
+        # Parameters server...
+        $this->getInstance()->Host = config('mail.host');
+        $this->getInstance()->Port = config('mail.port');
 
-        $mail->Username = config()['mail']['username'];
-        $mail->Password = config()['mail']['password'];
+        # Credentials...
+        $this->getInstance()->Username = config('mail.username');
+        $this->getInstance()->Password = config('mail.password');
 
-        return $mail;
+        return $this;
+    }
+
+    /**
+     * Return the instance created for the library mail.
+     *
+     * @return PHPMailer
+     */
+    private function getInstance()
+    {
+        return $this->instance;
     }
 }

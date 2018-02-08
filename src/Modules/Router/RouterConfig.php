@@ -3,6 +3,10 @@ namespace Chip\Modules\Router;
 
 /**
  * Class RouterConfig
+ *
+ * This encapsulates the parameters to configure the
+ * router and it up module.
+ *
  * @package Chip\Modules\Router
  */
 class RouterConfig

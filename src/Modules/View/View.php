@@ -3,6 +3,15 @@ namespace Chip\Modules\View;
 
 use Philo\Blade\Blade;
 
+/**
+ * Class View
+ *
+ * This class encapsulate the using of Blade template
+ * from laravel.
+ *
+ * @package Chip\Modules\View
+ * @see https://laravel.com/docs/5.1/blade
+ */
 class View
 {
     /**

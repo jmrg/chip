@@ -6,7 +6,10 @@ use \Hoa\Session\Session as HoaSession;
 /**
  * Class Session
  *
+ * This allow configure a guest and manipulate it.
+ *
  * @package Chip\Modules\Session
+ * @see https://hoa-project.net/En/Literature/Hack/Session.html
  */
 class Session
 {

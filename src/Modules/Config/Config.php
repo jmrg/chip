@@ -5,7 +5,13 @@ use Symfony\Component\Yaml\Yaml;
 
 /**
  * Class Config
+ *
+ * This class allow take the configurations from a file
+ * with format YAML in a location specific and keep
+ * it in a memory for later using.
+ *
  * @package Chip\Modules\Config
+ * @see https://symfony.com/doc/current/components/config.html
  */
 class Config
 {
@@ -21,6 +27,7 @@ class Config
 
     /**
      * Config constructor.
+     *
      * @param string $path
      */
     private function __construct($path)

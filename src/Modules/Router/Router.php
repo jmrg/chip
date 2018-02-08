@@ -5,7 +5,12 @@ use Klein\Klein;
 
 /**
  * Class Router
+ *
+ * This providers methods to manipulate requests and redirect
+ * it to file and work like a controller.
+ *
  * @package Chip\Modules\Router
+ * @see https://github.com/klein/klein.php#example
  */
 class Router
 {

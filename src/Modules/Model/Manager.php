@@ -5,7 +5,12 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 
 /**
  * Class Manager
+ *
+ * This allow to configure multiples connections with the
+ * database, taking the parameters from config app.
+ *
  * @package Chip\Modules\Model
+ * @see https://github.com/illuminate/database#usage-instructions
  */
 class Manager
 {
@@ -17,7 +22,7 @@ class Manager
     private static $capsules = [];
 
     /**
-     * Make a new connections with the db.
+     * This make a new connections with the db.
      *
      * @param string $name
      * @return Capsule
@@ -30,7 +35,7 @@ class Manager
 
         $capsule = new Capsule();
 
-        $capsule->addConnection(config()['databases'][$name]);
+        $capsule->addConnection(config("databases.{$name}"));
         $capsule->setAsGlobal();
 
         return static::$capsules[$name] = $capsule;

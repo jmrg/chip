@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * In this class should be loaded any class when have
+ * globals methods.
+ */
+
 // Adding helper of configuration.
 require_once __DIR__ . "/Modules/Config/helper.php";
 
