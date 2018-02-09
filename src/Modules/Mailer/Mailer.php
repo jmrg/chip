@@ -1,5 +1,5 @@
 <?php
-namespace Chip\Modules\Mailer;
+    namespace Chip\Modules\Mailer;
 
 use PHPMailer\PHPMailer\PHPMailer;
 
